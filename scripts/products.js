@@ -1,78 +1,11 @@
-const fakeProviders = [
-    {
-        id: 1,
-        name: "Fantasia",
-        category: "Limpieza",
-        email: 'mateo@mail.com',
-        address: "alberdi 345",
-        postalCode: 2400,
-        city: "san francisco",
-        province: "córdoba",
-        country: "argentina",
-        cuit: 20323730009,
-        iva: "IVA Responsable Inscripto",
-        contact: "mateo"
-    },
-    {
-        id: 2,
-        name: "Fantasia2",
-        category: "Limpieza",
-        email: 'mateo@mail.com',
-        address: "alberdi 345",
-        postalCode: 2400,
-        city: "san francisco",
-        province: "córdoba",
-        country: "argentina",
-        cuit: 20323730009,
-        iva: "IVA Responsable Inscripto",
-        contact: "mateo"
-    },
-    {
-        id: 3,
-        name: "Fantasia3",
-        category: "Limpieza",
-        email: 'mateo@mail.com',
-        address: "alberdi 345",
-        postalCode: 2400,
-        city: "san francisco",
-        province: "córdoba",
-        country: "argentina",
-        cuit: 20323730009,
-        iva: "IVA Responsable Inscripto",
-        contact: "mateo"
-    },
-]
-const categories = [
-    {
-        name: "Limpieza"
-    },
-    {
-        name: "Electrónica"
-    },
-    {
-        name: "Hogar"
-    },
-    {
-        name: "Jardín"
-    },
-    {
-        name: "Comestibles"
-    },
-]
 
 window.addEventListener("DOMContentLoaded", () => {
-
-    //            set fakeData               //
-    setStorage('categories', categories);
-    setStorage('providers', fakeProviders);
-    // ------------------------------------- //
-
-
   const table = document.getElementById("product-list");
   const products = getStorage("products");
   const storage = "products";
   const url = "products.html";
   addRow(table, products, storage, url);
+  disableAddNewLink('products');
 });
 function getStorage(key = "") {
   const storage = JSON.parse(window.localStorage.getItem(key)) || [];
@@ -146,4 +79,34 @@ function editItem(id, storage, url) {
   const element = data.filter((element) => element.id === id)[0];
   setStorage(store, element);
   window.location.href = `new-${url}?edit=${true}`;
+}
+
+function disableAddNewLink(page = 'products') {
+  const providers = getStorage('providers');
+  const products = getStorage('products');
+  const link = document.getElementById('add-link');
+  if (page === "products" && providers.length === 0) {
+    link.style.color = 'gray';
+    link.style.pointerEvents = 'none';
+    link.innerText = "Debe existir al menos un proveedor";
+    link.style.cursor = 'not-allowed';
+    link.setAttribute('href', '#');
+  } else if (page === 'orders' && products.length === 0) {
+    link.style.color = 'gray';
+    link.style.pointerEvents = 'none';
+    link.innerText = "Debe existir un proveedor con un producto";
+    link.style.cursor = 'not-allowed';
+    link.setAttribute('href', '#');
+  } else {
+    link.style.color = '';
+    link.style.pointerEvents = '';
+    link.style.cursor = '';
+    if (page === 'products') {
+      link.innerText = "Nuevo Producto";
+      link.setAttribute('href', 'new-products.html')
+    } else {
+      link.innerText = "Nueva Orden de Compra";
+      link.setAttribute('href', 'new-orders.html')
+    }
+  }
 }

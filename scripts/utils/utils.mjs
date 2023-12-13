@@ -296,3 +296,33 @@ export function fillIVAConditionDropdown() {
     select.appendChild(option);
   });
 }
+
+export function disableAddNewLink(page = 'products') {
+  const providers = getStorage("providers");
+  const products = getStorage("products");
+  const link = document.getElementById("add-link");
+  if (page === "products" && providers.length === 0) {
+    link.style.color = 'gray';
+    link.style.pointerEvents = 'none';
+    link.innerText = "Debe existir al menos un proveedor";
+    link.style.cursor = 'not-allowed';
+    link.setAttribute('href', '#');
+  } else if (page === 'orders' && products.length === 0) {
+    link.style.color = 'gray';
+    link.style.pointerEvents = 'none';
+    link.innerText = "Debe existir un proveedor con un producto";
+    link.style.cursor = 'not-allowed';
+    link.setAttribute('href', '#');
+  } else {
+    link.style.color = '';
+    link.style.pointerEvents = '';
+    link.style.cursor = '';
+    if (page === 'products') {
+      link.innerText = "Nuevo Producto";
+      link.setAttribute('href', 'new-products.html')
+    } else {
+      link.innerText = "Nueva Orden de Compra";
+      link.setAttribute('href', 'new-orders.html')
+    }
+  }
+}

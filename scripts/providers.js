@@ -29,7 +29,7 @@ const ivaCondition = [
 
 window.addEventListener("DOMContentLoaded", () => {
 
-    //            set static data               //
+    // ---------- set static data ----------- //
     setStorage('categories', categories);
     setStorage('iva', ivaCondition);
     // ------------------------------------- //
