@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="../styles/nav-style.css" />
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+              <li class="nav-item me-4">
+                <img src="../assets/abm.png" alt="abm logo" width="40">
+            </li>
+            <li class="nav-item">
+                <a class="nav-link link" href="providers.html">Proveedores</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link link" href="products.html">Productos</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link link" href="orders.html">Ordenes de compra</a>
+            </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container mt-5">
+      <header class="container-fluid text-center">
+        <h1 class="text-secondary mb-5">
+          Nuevo Proveedor
+        </h1>
+      </header>
+      <section class="container-fluid">
+        <article class="container-fluid">
+          <form>
+            <h5 class="mt-5 mb-4">Proovedor</h5>
+            <div class="mb-3">
+                <label for="codigoInput" class="form-label">Código</label>
+                <input type="text" required id="codigoInput" class="form-control" placeholder="Ingrese su codigo">
+            </div>
+
+            <div class="mb-3">
+                <label for="razonSocialInput" class="form-label">Razón social</label>
+                <input type="text" required id="razonSocialInput" class="form-control" placeholder="Ingrese Razón social">
+            </div>
+        
+            <label for="categoriaInput" class="form-label">Rubro</label>
+            <select id="categoriaInput" required class="form-select mb-3" aria-label="Default select example">
+            </select>
+
+            <div class="mb-3">
+                <label for="emailInput" class="form-label">Email</label>
+                <input type="email" required class="form-control" id="emailInput" aria-describedby="emailHelp"
+                placeholder="ejemplo@email.com">
+            </div>
+
+            <h5 class="mt-5 mb-4">Direccion</h5>
+            <div class="mb-3">
+                <label for="calleInput" class="form-label">Calle y Nº</label>
+                <input type="text" required id="calleInput" class="form-control" placeholder="ejemplo 123">
+            </div>
+
+            <div class="mb-3">
+                <label for="cpInput" class="form-label">Código postal</label>
+                <input type="number" required id="cpInput" class="form-control" placeholder="1234">
+            </div>
+
+            <div class="mb-3">
+                <label for="localidadInput" class="form-label">Localidad</label>
+                <input type="text" required id="localidadInput" class="form-control" 
+                placeholder="Ingrese la localidad">
+            </div>
+
+            <div class="mb-3">
+                <label for="provinciaInput" class="form-label">Provincia</label>
+                <input type="text" required id="provinciaInput" class="form-control" 
+                placeholder="Ingrese la provincia">
+            </div>
+
+            <div class="mb-3">
+                <label for="paisInput" class="form-label">Pais</label>
+                <input type="text" required id="paisInput" class="form-control" 
+                placeholder="Ingrese el pais">
+            </div>
+
+            <h5 class="mt-5 mb-4">Datos fiscales</h5>
+            <div class="mb-3">
+                <label for="ciutInput" class="form-label">CUIT</label>
+                <input type="number" required id="ciutInput" class="form-control" 
+                placeholder="12123456781">
+            </div>
+
+            <label for="condicionivaInput" class="form-label">Condición IVA</label>
+            <select id="condicionivaInput" required class="form-select mb-3" aria-label="Default select example">
+            </select>
+
+            <h5 class="mt-5 mb-4">Contacto</h5>
+            <div class="mb-3">
+                <label for="nombreInput" class="form-label">Nombre</label>
+                <input type="text" required id="nombreInput" class="form-control" 
+                placeholder="Ingrese su nombre">
+            </div>
+
+        
+            <button id="button-submit" class="btn btn-primary mt-2">Submit</button>
+        </form>
+        </article>
+      </section>
+    </main>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+    
+    <script src="../scripts/provider.js"></script>
+    <!-- <script src="../scripts/module/provider.mjs"></script> -->
+  </body>
+</html>

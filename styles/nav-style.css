@@ -1,0 +1,17 @@
+nav {
+    background-color: #79C99E;
+}
+
+.link {
+    color: #4A4238;
+}
+
+.link:hover {
+    color: #E94F37;
+}
+
+.banner {
+    margin: 2vw;
+    width: 50%;
+    height: 50%;
+}
